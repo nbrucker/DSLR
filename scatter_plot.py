@@ -32,9 +32,9 @@ def getValues(data):
 			if (check.isFloat(data[j][i])):
 				value = float(data[j][i])
 				values[data[0][i]]['notes'].append(value)
-				if (value > values[data[0][i]]['max'] or values[data[0][i]]['max'] is None):
+				if (values[data[0][i]]['max'] is None or value > values[data[0][i]]['max']):
 					values[data[0][i]]['max'] = value
-				if (value < values[data[0][i]]['min'] or values[data[0][i]]['min'] is None):
+				if (values[data[0][i]]['min'] is None or value < values[data[0][i]]['min']):
 					values[data[0][i]]['min'] = value
 			else:
 				values[data[0][i]]['notes'].append(None)
@@ -60,11 +60,13 @@ def main():
 	values = getValues(data)
 	i = 0
 	x = 15
+	count = 1
 	while (i < len(names)):
 		j = i + 1
 		while (j < len(names)):
 			if (x >= 15):
-				plt.figure(i, figsize=(25, 15))
+				plt.figure(count, figsize=(25, 15))
+				count += 1
 				x = 0
 			plt.subplot(3, 5, x + 1)
 			n = 0

@@ -38,9 +38,9 @@ def getValues(data):
 			if (data[j][1] in values[data[0][i]] and check.isFloat(data[j][i])):
 				value = float(data[j][i])
 				values[data[0][i]][data[j][1]].append(value)
-				if (value > values[data[0][i]]['max'] or values[data[0][i]]['max'] is None):
+				if (values[data[0][i]]['max'] is None or value > values[data[0][i]]['max']):
 					values[data[0][i]]['max'] = value
-				if (value < values[data[0][i]]['min'] or values[data[0][i]]['min'] is None):
+				if (values[data[0][i]]['min'] is None or value < values[data[0][i]]['min']):
 					values[data[0][i]]['min'] = value
 			j += 1
 		i += 1

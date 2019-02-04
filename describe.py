@@ -31,7 +31,7 @@ def getMin(data, n):
 	x = None
 	i = 1
 	while (i < len(data)):
-		if (check.isFloat(data[i][n]) and (x > float(data[i][n]) or x is None)):
+		if (check.isFloat(data[i][n]) and (x is None or x > float(data[i][n]))):
 			x = float(data[i][n])
 		i += 1
 	return x
@@ -40,7 +40,7 @@ def getMax(data, n):
 	x = None
 	i = 1
 	while (i < len(data)):
-		if (check.isFloat(data[i][n]) and (x < float(data[i][n]) or x is None)):
+		if (check.isFloat(data[i][n]) and (x is None or x < float(data[i][n]))):
 			x = float(data[i][n])
 		i += 1
 	return x
