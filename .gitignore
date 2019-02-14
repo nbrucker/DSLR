@@ -2,4 +2,6 @@
 .idea
 .DS_Store
 venv
-
+*.csv
+*.json
+*.png
